@@ -4,8 +4,31 @@
     <h1>Order #<%= @order.id %></h1>
   </header>
 
+  <table class="table">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Name</th>
+        <th>Image</th>
+        <th>Description</th>
+        <th>Quantity</th>
+        <th>Total</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @order.line_items.each do |item| %>
+        <%= render 'item', item: item %>
+      <% end %>
+      <tr>
+        <th>Total:</th>
+        <td><%= humanized_money_with_symbol @order.total_cents / 100 %> </td>
+      </tr>
+    </tbody>
+  </table>
+
   <div class="order-summary jumbotron">
     <h4>Thank you for your order!</h4>
+    <h5>Receipt sent to: <%= @order.email %> </h5>
   </div>
 
   <%= link_to "Continue Shopping", root_path, class: 'btn btn-lg btn-primary' %>

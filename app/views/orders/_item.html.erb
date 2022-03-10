@@ -1,0 +1,9 @@
+
+<tr>
+  <th><p><%= item.id %> </p></th>
+  <td><p><%= item.product.name %></p></td>
+  <td><%= image_tag item.product.image.tiny %></td>
+  <td><p><%= item.product.description.slice(0,160) %>...</p></td>
+  <td><p><%= item.quantity %></p></td>
+  <td><p><%= humanized_money_with_symbol item.total_price_cents / 100 %></p></td>
+</tr>
