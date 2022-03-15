@@ -8,7 +8,7 @@ RSpec.describe User, type: :model do
         :first_name => 'Soap',
         :last_name => 'Dodger',
         :password => 'paranormal',
-        :password_digest => 'paranormal'
+        :password_confirmation => 'paranormal'
       })
 
       expect(new_user).to be_valid
@@ -20,7 +20,7 @@ RSpec.describe User, type: :model do
         # :first_name => 'Soap',
         :last_name => 'Dodger',
         :password => 'paranormal',
-        :password_digest => 'paranormal'
+        :password_confirmation => 'paranormal'
       })
 
       expect(new_user).to be_invalid
@@ -32,7 +32,7 @@ RSpec.describe User, type: :model do
         :first_name => 'Soap',
         # :last_name => 'Dodger',
         :password => 'paranormal',
-        :password_digest => 'paranormal'
+        :password_confirmation => 'paranormal'
       })
 
       expect(new_user).to be_invalid
@@ -44,7 +44,7 @@ RSpec.describe User, type: :model do
         :first_name => 'Soap',
         :last_name => 'Dodger',
         :password => 'paranormal',
-        :password_digest => 'paranormal'
+        :password_confirmation => 'paranormal'
       })
 
       expect(new_user).to be_invalid
@@ -56,7 +56,7 @@ RSpec.describe User, type: :model do
         :first_name => 'Soap',
         :last_name => 'Dodger',
         :password => 'paranormal',
-        :password_digest => 'paranormal'
+        :password_confirmation => 'paranormal'
       })
 
       new_user = User.create({
@@ -64,7 +64,7 @@ RSpec.describe User, type: :model do
         :first_name => 'Soap',
         :last_name => 'Dodger',
         :password => 'paranormal',
-        :password_digest => 'paranormal'
+        :password_confirmation => 'paranormal'
       })
 
       expect(new_user).to be_invalid
@@ -76,7 +76,7 @@ RSpec.describe User, type: :model do
         :first_name => 'Soap',
         :last_name => 'Dodger',
         :password => 'paranormal',
-        :password_digest => 'hypernormal'
+        :password_confirmation => 'hypernormal'
       })
 
       expect(new_user).to be_invalid
