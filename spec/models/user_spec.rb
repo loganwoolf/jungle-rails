@@ -97,7 +97,7 @@ RSpec.describe User, type: :model do
   describe "Authentication" do
     before do
       new_user = User.create({
-        :email => 'soap_dodger@gmail.com',
+        :email => 'Soap_dodger@gmail.com',
         :first_name => 'Soap',
         :last_name => 'Dodger',
         :password => 'rightpassword',
@@ -118,6 +118,24 @@ RSpec.describe User, type: :model do
       auth_user = User.authenticate_with_credentials('soap_dodger@gmail.com', 'wrongpassword')
 
       expect(auth_user).to be_nil
+    end
+
+    it "should log in if email case is different" do
+      compare_user = User.find_by_email('soap_dodger@gmail.com')
+
+      auth_user = User.authenticate_with_credentials('sOap_dodger@gmail.com', 'rightpassword')
+
+      # expect(auth_user).to be_an_instance_of User
+      expect(auth_user).to eq(compare_user)
+    end
+
+    it "should log in if there are extra spaces around email" do
+      compare_user = User.find_by_email('soap_dodger@gmail.com')
+
+      auth_user = User.authenticate_with_credentials('  soap_dodger@gmail.com ', 'rightpassword')
+
+      # expect(auth_user).to be_an_instance_of User
+      expect(auth_user).to eq(compare_user)
     end
   end
 
