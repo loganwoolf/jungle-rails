@@ -9,11 +9,11 @@
 
     <%= form_for(:user, url: '/users') do |form| %>
 
-      <% if false # form.object.errors.any? %>
+      <% if params[:user_errors].any? %>
         <div class="alert alert-danger">
           <strong>The following errors prevented saving:</strong>
           <ul>
-            <% form.object.errors.full_messages.each do |error| %>
+            <% params[:user_errors].each do |error| %>
               <li>
                 <%= error %>
               </li>
@@ -45,7 +45,7 @@
 
       <%= form.submit "Submit" %>
     <% end %>
-  
+
   </div>
 </div>
 
