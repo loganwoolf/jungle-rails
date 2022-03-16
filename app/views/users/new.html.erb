@@ -9,9 +9,9 @@
 
     <%= form_for(:user, url: '/users') do |form| %>
 
-      <% if params[:user_errors].any? %>
+      <% if params[:user_errors] %>
         <div class="alert alert-danger">
-          <strong>The following errors prevented saving:</strong>
+          <strong>The following errors prevented registration:</strong>
           <ul>
             <% params[:user_errors].each do |error| %>
               <li>
