@@ -1,6 +1,7 @@
 class CartsController < ApplicationController
 
-  before_filter :authorize
+  # enable to force login on cart
+  # before_filter :authorize
 
   def show
   end
